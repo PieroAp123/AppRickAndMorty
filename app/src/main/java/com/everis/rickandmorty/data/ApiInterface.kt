@@ -7,5 +7,5 @@ import retrofit2.http.Query
 
 interface ApiInterface {
     @GET("character")
-    fun getRickAndMortyList(): Call<ListRickAndMorty>
+    fun getRickAndMortyList(@Query("page") page: Int): Call<ListRickAndMorty>
 }

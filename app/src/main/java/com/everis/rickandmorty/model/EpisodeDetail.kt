@@ -2,7 +2,7 @@ package com.everis.rickandmorty.model
 
 import com.google.gson.annotations.SerializedName
 
-data class RickAndMorty (
+data class EpisodeDetail(
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
