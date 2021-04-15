@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.everis.rickandmorty.adapter.RVRickAndMortyAdapter
 import com.everis.rickandmorty.data.ApiService
 import com.everis.rickandmorty.data.ClientConfig
-import com.everis.rickandmorty.model.RickAndMorty
 import com.everis.rickandmorty.databinding.ActivityRickandmortyBinding
-import com.everis.rickandmorty.model.ListRickAndMorty
+import com.everis.rickandmorty.model.episodeModels.EpisodeDetail
+import com.everis.rickandmorty.model.episodeModels.EpisodeResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,7 +22,7 @@ import retrofit2.Response
 class RickAndMortyActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRickandmortyBinding
-    private val rickAndMorty = mutableListOf<RickAndMorty>()
+    private val episodesList = mutableListOf<EpisodeDetail>()
     private lateinit var adapter: RVRickAndMortyAdapter
     private var canLoad = false
     private var page: Int = 1
@@ -40,17 +40,17 @@ class RickAndMortyActivity : AppCompatActivity() {
      private fun getRickAndMorty() {
          val service = ApiService(config = ClientConfig())
          CoroutineScope(Dispatchers.IO).launch {
-             service.getRickAndMortyList(page).enqueue(object : Callback<ListRickAndMorty> {
-                 override fun onResponse(call: Call<ListRickAndMorty>, response: Response<ListRickAndMorty>) {
+             service.getRickAndMortyList(page).enqueue(object : Callback<EpisodeResponse> {
+                 override fun onResponse(call: Call<EpisodeResponse>, response: Response<EpisodeResponse>) {
                      if (response.isSuccessful) {
                          canLoad = true
-                         rickAndMorty.addAll(response?.body()?.results ?: emptyList())
+                         episodesList.addAll(response?.body()?.results ?: emptyList())
                          adapter.notifyDataSetChanged()
                          Log.e("successful","Llamada del servicio correctamente")
                      }
                  }
 
-                 override fun onFailure(call: Call<ListRickAndMorty>, t: Throwable) {
+                 override fun onFailure(call: Call<EpisodeResponse>, t: Throwable) {
                      canLoad = true
                      Log.e("unsuccessful","Llamada del servicio error")
                  }
@@ -60,7 +60,7 @@ class RickAndMortyActivity : AppCompatActivity() {
     }
 
     fun initRecyclerView() {
-            adapter = RVRickAndMortyAdapter(rickAndMorty) {
+            adapter = RVRickAndMortyAdapter(episodesList) {
                 val intent = Intent(this, EpisodeDetailActivity::class.java).apply {
 
                 }

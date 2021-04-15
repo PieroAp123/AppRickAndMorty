@@ -1,8 +1,9 @@
-package com.everis.rickandmorty.model
+package com.everis.rickandmorty.model.characterModels
 
+import com.everis.rickandmorty.model.characterModels.Location
 import com.google.gson.annotations.SerializedName
 
-data class EpisodeDetail(
+data class RickAndMorty (
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
