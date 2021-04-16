@@ -5,17 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.everis.rickandmorty.R
 import com.everis.rickandmorty.adapter.CharacterAdapter
-import com.everis.rickandmorty.adapter.RVRickAndMortyAdapter
+import com.everis.rickandmorty.controller.CharacterDetail.CharacterDetailActivity
 import com.everis.rickandmorty.data.ApiService
 import com.everis.rickandmorty.data.ClientConfig
 import com.everis.rickandmorty.databinding.ActivityEpisodeDetailBinding
-import com.everis.rickandmorty.model.characterModels.ListRickAndMorty
 import com.everis.rickandmorty.model.characterModels.RickAndMorty
 import com.everis.rickandmorty.model.episodeModels.EpisodeDetail
-import com.everis.rickandmorty.model.episodeModels.EpisodeResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,6 +32,7 @@ class EpisodeDetailActivity : AppCompatActivity() {
         binding = ActivityEpisodeDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         episodeDetail = this.intent.getSerializableExtra("episodeDetail") as EpisodeDetail
+
         binding.episodeID.text = episodeDetail?.episode
         binding.episodeName.text = episodeDetail?.name
         binding.airDate.text = episodeDetail?.air_date
@@ -79,10 +76,10 @@ class EpisodeDetailActivity : AppCompatActivity() {
 
     fun initRecyclerView() {
         adapter = CharacterAdapter(episodeCharactersList) {
-            /*val intent = Intent(this, EpisodeDetailActivity::class.java).apply {
-                putExtra("episodeDetail", it)
+            val intent = Intent(this, CharacterDetailActivity::class.java).apply {
+                putExtra("characterDetail", it)
             }
-            startActivity(intent)*/
+            startActivity(intent)
         }
         binding.charactersRecyclerView.adapter = adapter
         binding.charactersRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)

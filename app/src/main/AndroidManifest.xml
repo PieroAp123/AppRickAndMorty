@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        <activity android:name=".controller.CharacterDetail.CharacterDetailActivity"></activity>
         <activity android:name=".controller.EpisodeDetailActivity"></activity>
         <activity android:name=".controller.RickAndMortyActivity"></activity>
         <activity android:name=".controller.SplashActivity">
