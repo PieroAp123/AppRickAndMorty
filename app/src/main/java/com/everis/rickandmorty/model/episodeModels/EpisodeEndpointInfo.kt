@@ -1,6 +1,7 @@
 package com.everis.rickandmorty.model.episodeModels
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class EpisodeEndpointInfo(
     @SerializedName("count")
@@ -11,4 +12,4 @@ data class EpisodeEndpointInfo(
     val next: String?,
     @SerializedName("prev")
     val prev: String?,
-)
+) : Serializable

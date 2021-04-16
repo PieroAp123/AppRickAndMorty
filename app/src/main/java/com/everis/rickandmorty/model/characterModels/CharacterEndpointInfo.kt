@@ -1,6 +1,7 @@
 package com.everis.rickandmorty.model.characterModels
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class CharacterEndpointInfo(
     @SerializedName("count")
@@ -11,4 +12,4 @@ data class CharacterEndpointInfo(
     val next: String?,
     @SerializedName("prev")
     val prev: String?
-)
+) : Serializable

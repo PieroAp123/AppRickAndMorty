@@ -2,6 +2,7 @@ package com.everis.rickandmorty.model.characterModels
 
 import com.everis.rickandmorty.model.characterModels.Location
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class RickAndMorty (
     @SerializedName("id")
@@ -24,4 +25,4 @@ data class RickAndMorty (
     val image: String,
     @SerializedName("episode")
     val episode: List<String>
-)
+) : Serializable

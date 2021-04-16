@@ -1,5 +1,6 @@
 package com.everis.rickandmorty.model.episodeModels
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class EpisodeDetail(
     @SerializedName("id")
@@ -16,4 +17,4 @@ data class EpisodeDetail(
     val url: String?,
     @SerializedName("created")
     val created: String?,
-)
+) : Serializable

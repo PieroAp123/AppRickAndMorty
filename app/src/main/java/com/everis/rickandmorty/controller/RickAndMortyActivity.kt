@@ -40,7 +40,7 @@ class RickAndMortyActivity : AppCompatActivity() {
      private fun getRickAndMorty() {
          val service = ApiService(config = ClientConfig())
          CoroutineScope(Dispatchers.IO).launch {
-             service.getRickAndMortyList(page).enqueue(object : Callback<EpisodeResponse> {
+             service.getRickAndMortyEpisodeList(page).enqueue(object : Callback<EpisodeResponse> {
                  override fun onResponse(call: Call<EpisodeResponse>, response: Response<EpisodeResponse>) {
                      if (response.isSuccessful) {
                          canLoad = true
@@ -62,7 +62,10 @@ class RickAndMortyActivity : AppCompatActivity() {
     fun initRecyclerView() {
             adapter = RVRickAndMortyAdapter(episodesList) {
                 val intent = Intent(this, EpisodeDetailActivity::class.java).apply {
-
+                    Log.e("q", it.episode!!)
+                    Log.e("q", it.name!!)
+                    Log.e("q", it.air_date!!)
+                    putExtra("episodeDetail", it)
                 }
                 startActivity(intent)
             }

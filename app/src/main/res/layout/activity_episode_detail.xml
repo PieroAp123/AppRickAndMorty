@@ -6,4 +6,112 @@
     android:layout_height="match_parent"
     tools:context=".controller.EpisodeDetailActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomGuideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95"
+        />
+
+    <TextView
+        android:id="@+id/episodeIDLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toStartOf="@id/episodeID"
+        app:layout_constraintTop_toTopOf="@id/episodeID"
+        app:layout_constraintBottom_toBottomOf="@id/episodeID"
+        android:text="Episodio: "/>
+    <TextView
+        android:id="@+id/episodeID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/episodeIDLabel"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintTop_toTopOf="@id/topGuideline"
+        tools:text="S1E001"/>
+    <TextView
+        android:id="@+id/episodeNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toStartOf="@id/episodeName"
+        app:layout_constraintTop_toTopOf="@id/episodeName"
+        app:layout_constraintBottom_toBottomOf="@id/episodeName"
+        android:text="Nombre: "/>
+    <TextView
+        android:id="@+id/episodeName"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/episodeNameLabel"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintTop_toBottomOf="@id/episodeID"
+        android:gravity="center"
+        tools:text="The Ricklantis"
+        app:layout_constrainedWidth="true"/>
+    <TextView
+        android:id="@+id/airDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toStartOf="@id/airDate"
+        app:layout_constraintTop_toTopOf="@id/airDate"
+        app:layout_constraintBottom_toBottomOf="@id/airDate"
+        android:text="Fecha de estreno: "/>
+    <TextView
+        android:id="@+id/airDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/airDateLabel"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintTop_toBottomOf="@id/episodeName"
+        tools:text="September 10, 2017"/>
+
+    <TextView
+        android:id="@+id/charactersLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@id/charactersRecyclerView"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/airDateLabel"
+        android:layout_marginHorizontal="40dp"
+        android:textSize="25sp"
+        android:text="Personajes"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/charactersRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/charactersLabel" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
