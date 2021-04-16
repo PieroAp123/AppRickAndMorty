@@ -26,5 +26,8 @@ class CharacterDetailActivity : AppCompatActivity() {
         binding.txtOrigen.text = characterDetail?.origin?.name
         binding.txtLocalizacion.text = characterDetail?.location?.name
         Picasso.get().load(characterDetail?.image).into(binding.imgCharacterDetail)
+
+        binding.arrowLeftCharacterDetail.setOnClickListener { onBackPressed() }
+
     }
 }

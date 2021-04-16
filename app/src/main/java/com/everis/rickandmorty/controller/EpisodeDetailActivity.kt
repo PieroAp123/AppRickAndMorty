@@ -39,6 +39,9 @@ class EpisodeDetailActivity : AppCompatActivity() {
         initRecyclerView()
         getCharacterListString()
         getEpisodeCharactersList()
+        binding.arrowLeftEpisodeDetail.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun getCharacterListString() {
