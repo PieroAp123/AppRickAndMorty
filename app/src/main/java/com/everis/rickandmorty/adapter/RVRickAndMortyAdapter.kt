@@ -1,5 +1,6 @@
 package com.everis.rickandmorty.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,13 +11,13 @@ import com.everis.rickandmorty.model.episodeModels.EpisodeDetail
 import com.squareup.picasso.Picasso
 
 class RVRickAndMortyAdapter(
-    private val episodeList: List<EpisodeDetail>,
-    private val onItemClicked: (EpisodeDetail) -> Unit
+        private val episodeList: List<EpisodeDetail>,
+        private val onItemClicked: (EpisodeDetail) -> Unit
 ): RecyclerView.Adapter<RVRickAndMortyAdapter.EpisodeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return EpisodeViewHolder(layoutInflater.inflate(R.layout.item_character, parent,false)) {
+        return EpisodeViewHolder(layoutInflater.inflate(R.layout.item_character, parent, false)) {
             onItemClicked(episodeList[it])
         }
     }
@@ -39,6 +40,9 @@ class RVRickAndMortyAdapter(
 
         fun bind(episode: EpisodeDetail) {
             //Picasso.get().load(episode.url).into(binding.imgRickAndMorty)
+            //val color: Int = Color.parseColor("#ffffff") //The color u want
+
+            ///binding.imgRickAndMorty.setColorFilter(color)
             Picasso.get().load(R.drawable.rickstrange).into(binding.imgRickAndMorty)
             binding.txtCharacterNameRickAndMorty.text = episode.name
         }
