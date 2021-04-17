@@ -39,6 +39,7 @@ class EpisodeDetailActivity : AppCompatActivity() {
         initRecyclerView()
         getCharacterListString()
         getEpisodeCharactersList()
+        supportActionBar?.title = "Detalle del Episodio"
         binding.arrowLeftEpisodeDetail.setOnClickListener {
             onBackPressed()
         }

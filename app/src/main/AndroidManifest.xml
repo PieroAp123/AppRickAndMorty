@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+        android:theme="@style/Theme.RickAndMorty" >
         <activity android:name=".controller.CharacterDetail.CharacterDetailActivity" />
         <activity android:name=".controller.EpisodeDetailActivity" />
         <activity android:name=".controller.RickAndMortyActivity" />

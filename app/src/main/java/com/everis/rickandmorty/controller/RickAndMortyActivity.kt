@@ -34,6 +34,7 @@ class RickAndMortyActivity : AppCompatActivity() {
         initRecyclerView()
         canLoad = true
         getRickAndMorty()
+        supportActionBar?.title = "Lista de Episodios"
 
     }
 

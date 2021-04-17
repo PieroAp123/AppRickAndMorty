@@ -15,6 +15,7 @@ class CharacterDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ItemCharacterDetailActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.title = "Detalle del Personaje"
 
         characterDetail = this.intent.getSerializableExtra("characterDetail") as RickAndMorty
 
