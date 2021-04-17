@@ -23,5 +23,11 @@ class SplashActivity: AppCompatActivity() {
 
 
 
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        supportActionBar?.hide()
     }
 }
