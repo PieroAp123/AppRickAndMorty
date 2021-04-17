@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".controller.EpisodeDetailActivity"
-    android:background="@color/app_yellow">
+    android:background="@drawable/shape_gradient">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topGuidelineBack"
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="1"
+        app:layout_constraintGuide_percent="0.95"
         />
 
     <androidx.constraintlayout.widget.Guideline
@@ -150,12 +150,13 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_title_personaje"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="@+id/endGuideline"
         app:layout_constraintStart_toStartOf="@+id/startGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/card_episode_detail">
+        app:layout_constraintTop_toBottomOf="@+id/card_episode_detail"
+        app:layout_constraintBottom_toBottomOf="@id/bottomGuideline">
 
         <LinearLayout
             android:layout_width="match_parent"
